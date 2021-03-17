@@ -6,13 +6,23 @@ class myElements extends HTMLElement {
 		const template = document.createElement("template")
 		template.innerHTML = `
 			<section>
-				<h2>Hola mundo!</h2>
+				<h2 class="title">Hola mundo!</h2>
 				<div>
 					<p>Soy más texto ejemplo</p>
 				</div>
 			</section>
+			${this.getStyles()}
 		`
 		return template
+	}
+	getStyles() {
+		return `
+			<style>
+				h2 {
+					color: red;
+				}
+			</style>
+		`
 	}
 	render() {
 		this.appendChild(this.getTemplate().content.cloneNode(true))
